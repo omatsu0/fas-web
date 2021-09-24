@@ -18,10 +18,7 @@
   アカウント情報編集は<%= link_to "こちら", edit_user_registration_path %>
 
   <div class="form-group mt-3">
-    <%= attachment_image_tag(@profile, :icon_image, :fill, 200, 200, class: "rounded-circle pull-left profile-thumb") %><br>
-    <% if @profile.icon_image == nil %>
-      <%= image_pack_tag 'no_image.jpg', class: "no_img", size: '150x150', class: "rounded-circle pull-left profile-thumb" %>
-    <% end %>
+      <%= attachment_image_tag @profile, :icon_image, :fill, 200, 200, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %>
     <br/>
     <%= f.attachment_field :icon_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
   </div>

@@ -1,1 +1,105 @@
-トップです
+<section class="jumbotron text-center">
+  <div class="title_text">
+      <div>
+        <h1 class="jumbotron-heading section_title">FAS</h1>
+      </div>
+      <div class="full_title">Fashion Advise site</div>
+  </div>
+</section>
+
+  <div id="notice"><%= notice %></div> 
+  <div id="alert"><%= alert %></div>
+
+<div class="container">
+ <div class="album py-3 bg-light">
+  <div class="container">
+    <%= form_tag posts_path, class:"form-inline",:method => 'get' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], placeholder: "タイトル検索",class:"form-control mb-2 mr-sm-2" %>
+        <%= button_tag :submit ,:name => nil, id: "sbtn2" do %>
+            <i class="fas fa-search" aria-hidden="true"></i>
+        <% end %>
+      </div>
+      <div class="s_check_box">
+        <%= check_box_tag :status, checked = true,value=false,class: "ml30px" %>
+        <%= label_tag :status, "募集終了も含める" %>
+      </div>
+    <% end %>
+
+    <div class="d-flex align-items-center">
+    <!-- 投稿ボタン -->
+      <div class="ml-auto posts_button">
+        <% if user_signed_in? %>
+        <%= link_to "投稿", new_post_path, class: 'form_button' %>
+        <% else %>
+        <%= link_to "投稿", new_user_session_path, class: 'form_button' %>
+        <% end %>
+      </div>
+    </div>
+
+   <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+
+      <!-- 投稿カード一覧 -->
+      <% @posts.each do |post| %>
+        <div class="col-xs-12 col-lg-4">
+          <div class="card mb-4 shadow-sm">
+
+            <div class="post_index_image">
+              <%= attachment_image_tag(post.post_images.first, :image, :fill, 300, 300, 
+                  fallback: "no_photo.jpg", size:'300x300', class: "card-img-top img-fluid") %><br>
+              <!-- 募集終了タグ -->
+                <% if post.status == false %>
+                  <div class="ended">
+                    Close
+                  </div>
+                <% end %>
+            </div>
+
+            <div class="card-body posts_card">
+              <div class="card-text">
+                  <div class="text_overflow">
+                    <%= link_to post.title,post_path(post.id),class: "post_title" %>
+                  </div>
+              </div>
+
+              <div class="justify-content-between align-items-center post_index_tag">
+                <i class="fas fa-tags"></i><%= render 'posts/tag_list', tag_list: post.tag_list %>
+              </div>
+
+              <div class="row post_data">
+                <div class="col-2">
+                  <div class="profile_name">
+                    <%= link_to users_profile_path(post.user_id) do %>
+                        <%= attachment_image_tag(post.user.profile, :icon_image, :fill, 20, 20, 
+                            fallback: "no_image.jpg", size:'20x20',class: "rounded-circle pull-left profile-thumb") %><br>
+                      <!--<span style="font-size:10px;"><%= post.user.name %></span>-->
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="col-3 text-center">
+                  <small class="text-muted card_comment_icon"><i class="far fa-comment-dots" aria-hidden="true" style="color: gray;"></i> <%= post.comments.count %></small>
+                </div>
+
+                <div class="col-7 post_index_time">
+                  <small class="text-muted"><%= post.created_at.strftime("%Y-%m-%d") %>
+                - <%= post.deadline.strftime("%Y-%m-%d") %></small>
+                </div>
+              </div>
+            </div>
+         
+         </div>
+        </div>
+      <% end %>
+      <!-- 投稿一覧ループ終了 -->
+
+      </div>
+      <!-- ページネーション -->
+      <%= paginate @posts %>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
