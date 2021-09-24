@@ -55,3 +55,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'dotenv-rails'
+gem "devise"
+gem 'devise-i18n'
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick", github: 'refile/refile-mini_magick'
+gem 'kaminari','~> 1.2.1'
+gem 'rinku'

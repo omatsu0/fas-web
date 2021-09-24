@@ -1,0 +1,41 @@
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand logo" href="/">FAS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse main_nav" id="navbarCollapse">
+      <div class="navbar-nav mr-auto">
+      </div>
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+          <%= link_to "Home", root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(home_about_path) %>">
+          <%= link_to "About", home_about_path, class: 'nav-link' %>
+        </li>
+        <div class="account <%= 'active' if current_page?(users_profile_path(current_user.id)) %>">
+       <%= link_to users_profile_path(current_user.id), class: 'nav-link' do %>
+              <div><i class="fas fa-user-circle" aria-hidden="true"></i>
+              <span style="font-size:10px; margin-top:0px;padding-top:0px"><%= current_user.name %></span>
+              </div>
+          <% end %>
+        </li>
+        </div>
+        <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+          <%= link_to "Contact", root_path, class: 'nav-link' %>
+        </li>
+
+        <% if current_user.admin == true %>
+          <li class="nav-item">
+            <%= link_to "管理者画面", root_path, method: :get, class: 'nav-link' %>
+        </li>
+        <% end %>
+        
+        <li class="nav-item">
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+
+      </ul>
+      
+    </div>
+  </nav>

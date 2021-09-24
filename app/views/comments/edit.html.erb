@@ -1,0 +1,34 @@
+<div class="container">
+<%= render 'layouts/errors', obj: @comment %>
+<div class="d-flex align-items-center">
+  <h1>編集</h1>
+</div>
+<%= form_for [@post,@comment] do |f| %>
+  <div class="form-group">
+        <%= f.label :body, '投稿内容' %>
+        <br/>
+        <%= f.text_area :body, class: 'form-control', rows:10 %>
+        <small id="content-tip" class="form-text text-muted">
+            投稿内容を入力してください。 
+        </small>
+    </div>
+  <div class="form-group">
+        <% if @comment.post_images.present? %>
+            <% @comment.post_images.each do |image| %>
+            <%= attachment_image_pack_tag image, :image, :fill, 200, 200 %>
+            <% end %>
+        <% end %>
+        <br/>
+        <%= f.attachment_field :post_images_images, multiple: true %>
+        <small id="image-tip" class="form-text text-muted">
+        ※複数画像選択可能
+        </small>
+    </div>
+    
+    <%= f.submit '編集', class: 'btn btn-info btn-block' %>
+    <small id="submit-tip" class="form-text text-muted">
+        投稿する前に投稿内容を見直してください!
+    </small>
+<% end %>
+<%= link_to 'コメントを削除', post_comment_delete_path(@post.id,@comment.id),method: :patch, class: 'btn btn-outline-info',data: {confirm: 'コメントを削除しますか?'} %>
+</div>

@@ -1,0 +1,15 @@
+<h4 class="card-title">ベストコメント一覧（全<%= user_best_comments_count %>件）</h4>
+  <p class="card-text">
+    <% user_best_comments.each do |comment| %>
+      <div class="row">
+       <%= image_pack_tag 'crown.png',:size =>'60x60' %><br>
+        <div class="col-md-12 text_overflow text-left">
+          <%= link_to comment.body,post_path(comment.post_id),class: "text-muted" %>
+          <div class="text-muted"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+        </div>
+      </div>
+      </p>
+      <hr/>
+    <% end %>
+  </p>
+<%= paginate user_best_comments,remote: true %>

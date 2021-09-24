@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse main_nav" id="navbarCollapse">
-    <div class="navbar-nav me-auto">
+    <div class="navbar-nav mr-auto">
     </div>
     <ul class="navbar-nav navbar-right">
       <li class="nav-item <%= 'active' if current_page?(root_path) %>">
@@ -16,8 +16,8 @@
       <li class="nav-item <%= 'active' if current_page?(root_path) %>">
         <%= link_to "Contact", root_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-        <%= link_to "Sign In", root_path, class: 'nav-link' %>
+      <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
+        <%= link_to "Sign In", new_user_session_path, class: 'nav-link' %>
       </li>
     </ul>
     
