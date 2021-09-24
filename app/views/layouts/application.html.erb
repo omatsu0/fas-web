@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>FAS</title>
     <%= csrf_meta_tags %>
@@ -8,9 +8,31 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <%= favicon_pack_tag('favicon.svg') %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <div class="container mt-5">
+        <%= render partial: 'layouts/header' %>
+      </div>
+
+        <% unless current_page?(root_path) || current_page?(posts_path) %>
+         <div class="container alert_notice">
+          <div id="notice"><%= notice %></div> 
+          <div id="alert"><%= alert %></div>
+         </div>
+        <% end %>
+      
+      <%= yield %>
+            <%= render partial: 'layouts/footer' %>
+      </div>
+
+    <span id="top">
+      <a href="#">
+        <i class="fas fa-arrow-circle-up fa-3x top_arrow"></i>
+      </a>
+    </span>
+
   </body>
 </html>
