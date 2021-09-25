@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  before_action :deadline_post_deleate, only: [:index]
   before_action :authenticate_user!, only: [:new,:edit]
 
   def index

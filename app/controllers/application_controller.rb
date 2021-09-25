@@ -9,4 +9,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
+  def deadline_post_deleate
+    posts=Post.where(status: true)
+    today=Date.today
+    posts.each do |post|
+      if post.deadline < today
+        post.update_columns(status: false)
+      end
+    end
+  end
+
 end

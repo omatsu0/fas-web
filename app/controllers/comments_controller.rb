@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-
+  before_action :deadline_post_deleate, only: [:create]
+  
   def new
     @comment = Comment.new
     @post = Post.find(params[:post_id])
