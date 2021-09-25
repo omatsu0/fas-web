@@ -47,8 +47,12 @@
           <div class="card mb-4 shadow-sm">
 
             <div class="post_index_image">
-              <%= attachment_image_tag(post.post_images.first, :image, :fill, 300, 300, 
-                  fallback: "no_photo.jpg", size:'300x300', class: "card-img-top img-fluid") %><br>
+              <% if post.post_images.first == nil %>
+                <%= image_pack_tag 'no_photo.jpg', size:'300x300', class: "card-img-top img-fluid" %>
+              <% else %>
+                <%= attachment_image_tag(post.post_images.first, :image, :fill, 300, 300, class: "card-img-top img-fluid") %>
+              <% end %>
+              <br/>
               <!-- 募集終了タグ -->
                 <% if post.status == false %>
                   <div class="ended">
@@ -65,15 +69,19 @@
               </div>
 
               <div class="justify-content-between align-items-center post_index_tag">
-                <i class="fas fa-tags"></i><%= render 'posts/tag_list', tag_list: post.tag_list %>
+
               </div>
 
               <div class="row post_data">
                 <div class="col-2">
                   <div class="profile_name">
                     <%= link_to users_profile_path(post.user_id) do %>
-                        <%= attachment_image_tag(post.user.profile, :icon_image, :fill, 20, 20, 
-                            fallback: "no_image.jpg", size:'20x20',class: "rounded-circle pull-left profile-thumb") %><br>
+                      <% if post.user.profile.icon_image == nil %>
+                        <%= image_pack_tag 'no_image.jpg', size: '20x20', class: "rounded-circle pull-left profile-thumb" %>
+                      <% else %>
+                        <%= attachment_image_tag(post.user.profile, :icon_image, :fill, 20, 20, class: "rounded-circle pull-left profile-thumb") %>
+                      <% end %>                      
+                      <br>
                       <!--<span style="font-size:10px;"><%= post.user.name %></span>-->
                     <% end %>
                   </div>

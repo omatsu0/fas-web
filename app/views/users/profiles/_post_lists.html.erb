@@ -1,7 +1,7 @@
 <h4 class="card-title">投稿一覧（全<%= user_posts_count %>件）</h4>
   <p class="card-text">
     <% user_posts.each do |post| %>
-      <%= render 'posts/tag_list', tag_list: post.tag_list %><br>
+
       <span class="font-weight-bold"><%= link_to post.title,post_path(post.id) %></span>
       <% if post.status==false %>
         <div class="post_ended_tag font_size5">
