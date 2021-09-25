@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_24_200131) do
+ActiveRecord::Schema.define(version: 2021_09_25_192609) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "body"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2021_09_24_200131) do
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "comment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "icon_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "icon_image_id"
+    t.bigint "profile_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_24_200131) do
     t.text "introduce"
     t.string "hp_url"
     t.string "address"
-    t.integer "icon_image_id"
+    t.string "icon_image_id"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
