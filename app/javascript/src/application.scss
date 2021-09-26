@@ -1832,11 +1832,12 @@ ul.social-network {
   display: inline;
   margin-left: 0 !important;
   padding: 0;
+  vertical-align: middle;
 }
 
 ul.social-network li {
   display: inline;
-  margin: 0 5px;
+  margin: 0 0px;
 }
 
 
@@ -1844,10 +1845,12 @@ ul.social-network li {
 
 .social-network a.icoFacebook:hover {
   background-color: #3B5998;
+  color:white;
 }
 
 .social-network a.icoLinkedin:hover {
   background-color: #007bb7;
+  color:white;
 }
 
 .social-network a.icoFacebook:hover i,
@@ -1871,6 +1874,7 @@ ul.social-network li {
   width: 30px;
   height: 30px;
   font-size: 15px;
+  vertical-align: middle;
 }
 
 .social-circle li i {
@@ -1903,6 +1907,9 @@ ul.social-network li {
 
 .social-network a {
   background-color: #F9F9F9;
+}
+.svg-inline--fa{
+  vertical-align: middle;
 }
 .footer_border {
   font-size: 12px;
