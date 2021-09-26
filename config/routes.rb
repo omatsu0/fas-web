@@ -33,4 +33,8 @@ Rails.application.routes.draw do
     get ":id/profile/best_comments_show", :to => "profiles#best_comments_show", as: 'best_comments_show'
   end
 
+  get "inquiry_mailer/new", :to => "inquiry_mailer#new", as: 'new_inquiry_mailer'
+  get "inquiry_mailer/confirm",:to => "inquiry_mailer#confirm",as: 'confirm_inquiry_mailer'
+  get "inquiry_mailer/done",:to => "inquiry_mailer#done",as: 'done_inquiry_mailer'
+
 end

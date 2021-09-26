@@ -21,8 +21,8 @@
           <% end %>
         </li>
         </div>
-        <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-          <%= link_to "Contact", root_path, class: 'nav-link' %>
+        <li class="nav-item <%= 'active' if current_page?(new_inquiry_mailer_path) %>">
+          <%= link_to "Contact", new_inquiry_mailer_path, class: 'nav-link' %>
         </li>
 
         <% if current_user.admin == true %>
