@@ -69,3 +69,4 @@ gem 'rails_admin', '~> 2.0.0.beta'
 gem 'rails_admin_tag_list'
 gem 'cancancan'
 gem "geocoder"
+gem 'acts-as-taggable-on', '~> 6.0'
