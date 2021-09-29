@@ -10,7 +10,7 @@ class InquiryMailer < ApplicationMailer
     p "#{@inquiry.subject}を送りました。"
     mail(
       from: @inquiry.email,
-      to:   ENV['MAIL_ADDRESS'],
+      to:   Rails.application.credentials.mail[:address],
       subject: 'お問い合わせ通知'
     )
   end
@@ -19,7 +19,7 @@ class InquiryMailer < ApplicationMailer
     @inquiry = inquiry
     p "#{@inquiry.subject}を送りました。"
     mail(
-      from: ENV['MAIL_ADDRESS'],
+      from: Rails.application.credentials.mail[:address],
       to:   @inquiry.email,
       subject: '【FAS運営】お問い合わせありがとうございます'
     )do |format|

@@ -6,7 +6,7 @@ Geocoder.configure(
   # ip_lookup: :maxmind,
 
   # to use an API key:
-  api_key: ENV['GOOGLE_API_KEY'],
+  api_key: Rails.application.credentials.google[:api_key],
 
   # geocoding service request timeout, in seconds (default 3):
   timeout: 5,
