@@ -2,7 +2,7 @@
 ![fas-site work](https://user-images.githubusercontent.com/62799261/127780040-9f26a96b-8243-4cd3-be77-56fe81117af2.png)
 
 ### サイトURL
-https://fas-site.work/
+https://fas-web.net/
 
 ## サイト概要
 **服のマッチングアドバイス用掲示板サイト**。<br>
@@ -42,7 +42,7 @@ https://fas-site.work/
 | 投稿募集期間設定（自動close機能） |
 | 投稿検索機能（タイトル・タグ） |
 | コメント機能（募集終了など） |
-| いいね機能（Ajax) |
+| いいね機能（Ajax） |
 | ベストコメント機能 |
 | マイページ |
 | 店舗住所登録機能（GoogleMap API） |
