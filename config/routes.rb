@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     :omniauth_callbacks => 'users/omniauth_callbacks'
   }
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+  
   namespace :users do
     get ":id/profile", :to => "profiles#show", as: 'profile'
     get ":id/profile/edit", :to => "profiles#edit", as: 'edit_profile'
