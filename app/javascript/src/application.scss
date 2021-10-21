@@ -1612,7 +1612,6 @@ section
   margin-top: 10px;
 }
 
-
 .form-signin_up {
   width: 100%;
   max-width: 360px;
@@ -1635,7 +1634,9 @@ section
 }
 
 .submit_button{
-  margin-top:30px
+  margin-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
  .favorite-list{
    list-style: none;
