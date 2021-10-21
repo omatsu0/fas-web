@@ -1,7 +1,8 @@
 <div class="container">
 <div class="d-flex align-items-center mb-4">
     <div class="ml-auto posts_button">
-        <% if user_signed_in? && (current_user.id==@post.user_id) && (@post.status==true) %>
+        <!--<% if user_signed_in? && (current_user.id==@post.user_id) && (@post.status==true) %>-->
+        <% if user_signed_in? && (current_user.id==@post.user_id) %>
           <%= link_to "編集", edit_post_path, class: 'btn btn-outline-info' %>
         <% end %>
     </div>
