@@ -1611,7 +1611,6 @@ section
   @extend .alert-danger;
   display: inline-block;
   margin-top: 10px;
-  padding-left: 20px;
 }
 
 .form-signin_up {
@@ -2304,9 +2303,4 @@ a {
   tr:hover {
     cursor: pointer;
   }
-}
-
-#id,
-#alert{
- padding: 10px;
 }
