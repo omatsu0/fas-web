@@ -63,8 +63,15 @@
             </div>
           </div>
 
-          <div class="col post_show_time">
-            投稿 <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+          <div class="col post_show_time flex-column">
+            <% if @post.created_at != @post.updated_at  %>
+              <div class="text-info">
+              更新： <%= @post.updated_at.strftime("%Y-%m-%d %H:%M") %>
+              </div>
+            <% end %>
+            <div>
+              投稿： <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+            </div>
           </div>
 
           <div class="col post_show_time">
