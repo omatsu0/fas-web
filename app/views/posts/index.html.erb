@@ -48,9 +48,13 @@
 
             <div class="post_index_image">
               <% if post.post_images.first == nil %>
-                <%= image_pack_tag 'no_photo.jpg', size:'300x300', class: "card-img-top img-fluid" %>
+                <a href="/posts/<%= post.id %>">
+                  <%= image_pack_tag 'no_photo.jpg', size:'300x300', class: "card-img-top img-fluid" %>
+                </a>
               <% else %>
-                <%= attachment_image_tag(post.post_images.first, :image, :fill, 300, 300, class: "card-img-top img-fluid") %>
+                <a href="/posts/<%= post.id %>">
+                  <%= attachment_image_tag(post.post_images.first, :image, :fill, 300, 300, class: "card-img-top img-fluid") %>
+                </a>
               <% end %>
               <br/>
               <!-- 募集終了タグ -->
