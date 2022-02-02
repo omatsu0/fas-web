@@ -88,7 +88,7 @@ https://fas-web.net/
 * インフラ
     * Docker 19.03.12/ docker-compose 1.26.2
     * Mysql 8.0
-    * AWS (VPC,EC2,S3,RDS,Route53,EIP,IAM)
+    * AWS (VPC,EC2,RDS,Route53,EIP,IAM)
 * その他使用ツール
     * Visual Studio Code
     * draw.io
