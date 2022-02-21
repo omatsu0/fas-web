@@ -1789,6 +1789,13 @@ footer {
   display: inline-block;
   z-index: 2000;
 }*/
+.navbar-toggler-icon {
+  width: 3em;
+  height: 5em;
+}
+.navbar-dark .navbar-toggler{
+  border:none;
+}
 .footer_hr{
   color:white;
 }
